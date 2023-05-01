@@ -1,0 +1,49 @@
+.requestt .search-holder ion-searchbar
+{
+    --background: transparent;
+}
+
+.requestt .search-holder ion-searchbar  .searchbar-input-container input
+{
+              background: white !important;
+              box-shadow: none !important;
+              border-radius: 1rem !important;
+              padding-left: 40px !important;
+}
+
+.top-title-item .start-slot
+{
+    margin-right: 10px;
+}
+
+.top-title-item .start-slot ion-button
+{
+   
+    --background: transparent;
+    --box-shadow: none;
+    --color: var(--ion-color-primary);
+}
+
+.top-title-item ion-label
+{
+    color:  #042C5C !important;
+    font-family: 'Roman' !important;
+    font-size: 14px !important;
+}
+
+.top-title-item .end-slot
+{
+    margin: 0;
+}
+
+.requestt .the-list ion-item  h3
+{
+    color:  #042C5C !important;
+}
+
+.requestt .the-list ion-item p
+{
+    color: #77869E !important;
+    font-family: 'AvenirR'!important;
+}
+

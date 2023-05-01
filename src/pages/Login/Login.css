@@ -1,0 +1,107 @@
+.login-header ion-toolbar
+{
+
+}
+
+.social-holder .btn
+{
+    --background: transparent;
+    --border-radius: 10px;
+    --box-shadow: none;
+    --border-color: #77869e56;
+    --border-size:0.05px;
+    --border-style: solid;
+    display: inline-block !important;
+    height: 3rem !important;
+    margin: 0 5px !important;
+    text-transform: none;
+}
+
+.the-form
+{
+    margin-top: 5vh;
+}
+
+.input-holder
+{
+    margin: 10px 0;
+}
+
+.input-label
+{
+    color: #77869E !important;
+    font-family: 'Roman' !important;
+    font-size: .9rem !important;
+}
+.input-item
+{
+    --highlight-color-invalid:red;
+    --highlight-color-valid: #2AD95A;
+}
+
+.verify-tick
+{
+    color: #2AD95A;
+}
+
+
+.login .rem-holder .rem-item
+{
+    --padding-start:0;
+    --inner-padding-end:0;
+}
+
+.login .rem-holder .rem-item .rem-check
+{
+    margin-right: 10px !important;
+}
+.login .rem-item .rem-label
+{
+    color: #77869E !important;
+    font-family: 'Roman' !important;
+    font-size: 0.9rem !important;
+}
+
+.rem-holder .forgot-button
+{
+    --background: transparent;
+    --box-shadow: none;
+    --color:var(--ion-color-primary) !important;
+    font-size: 0.9rem !important;
+    text-transform: none;
+}
+
+.btn-holder
+{
+    margin-top: 5vh;
+}
+
+.btn-holder .login-button
+{
+    --border-radius: 10px;
+    height: 3rem !important;
+    text-transform: none;
+}
+
+
+.bottom-holder
+{
+    margin-top: 20px;
+}
+.bottom-holder .bottom-btn
+{
+    color: #77869E;
+    font-size: 16px;
+    margin: 0 !important;
+}
+
+.bottom-holder .bottom-btn-span
+{
+    --background: transparent;
+    --box-shadow: none;
+    --color: #042C5C;
+    font-family: 'Black';
+    height: fit-content !important;
+    font-size: 14px !important;
+    text-transform: none;
+}

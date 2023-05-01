@@ -1,0 +1,61 @@
+.moneyy-holder ion-item {
+    margin: 0 auto;
+    width: 250px;
+}
+.moneyy-holder ion-item .start-slot {
+    display: flex;
+    align-items: center;
+}
+.moneyy-holder ion-item .start-slot h1 {
+    margin: 0 !important;
+}
+.moneyy-holder ion-item ion-input {
+    font-size: 2.5rem !important;
+}
+.addincome .unit-holder ion-item ion-select {
+    margin-left: 30% !important;
+}
+.addincome .the-form .detail-item {
+    margin: 15px 0 !important;
+}
+.addincome .the-form .detail-item ion-label {
+    font-size: 0.9rem !important;
+    color: #77869e !important;
+}
+.addincome .the-form .detail-item ion-textarea {
+    --background: #dfe7f5;
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+
+.cat-holder {
+    overflow-x: scroll !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+}
+.cat-holder::-webkit-scrollbar {
+    display: none !important;
+}
+.cat-holder ion-radio-group .rad-item {
+    margin: 0 10px !important;
+    width: 70px;
+    display: inline-block !important;
+}
+.cat-holder ion-radio-group .rad-item ion-item {
+    --min-height: 70px;
+    --border-radius: 50% !important;
+}
+.cat-holder ion-radio-group .rad-item ion-item ion-radio {
+    opacity: 0 !important;
+}
+.cat-holder .item-radio-checked {
+    --background: #dfe7f5 !important;
+    --color: var(--ion-color-primary) !important;
+}
+
+
+
+ion-footer .addincome-footer-toolbar ion-button {
+    height: 50px !important;
+}

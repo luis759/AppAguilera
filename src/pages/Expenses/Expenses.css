@@ -1,0 +1,47 @@
+.expenses-bar
+{
+    --background: #f8f9f9;
+}
+
+
+.expenses
+{
+    --background: #f8f9f9;
+}
+
+.top-item
+{
+    --background: transparent;
+}
+
+.top-item .start-slot p
+{
+    color: #77869e ;
+    font-family: 'Heavy' ;
+    font-size: 0.9rem ;
+    margin: 0;
+}
+
+.top-item .start-slot h1
+{
+    color: #042c5c;
+    font-family: 'Black' ;
+    margin: 10px 0 0 0 ;
+}
+
+.top-item .end-slot p
+{
+    font-family: 'Heavy';
+    margin: 5px 0;
+}
+
+.top-item .end-slot #up
+{
+    color: #1bc773;
+}
+
+.top-item .end-slot #down
+{
+    color: #f24750;
+}
+

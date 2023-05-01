@@ -1,0 +1,23 @@
+.notifications .section {
+    margin: 10px 0 !important;
+}
+.notifications .section .section-title h4 {
+    color: #c1c7d0 !important;
+}
+.notifications .section .the-list ion-item .thumb img {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+}
+.notifications .section .the-list ion-item ion-label h5 {
+    color: #002251 !important;
+    font-family: 'Medium' !important;
+}
+.notifications .section .the-list ion-item ion-label h5 .amount {
+    color: var(--ion-color-primary) !important;
+}
+.notifications .section .the-list ion-item ion-label h5 .person {
+}
+.notifications .section .the-list ion-item .end-slot {
+    margin-left: 0 !important;
+}

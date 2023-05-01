@@ -1,0 +1,6 @@
+{
+	"appId": "com.ionwizard.ionreactbanking",
+	"appName": "ionbanking",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}

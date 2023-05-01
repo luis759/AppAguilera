@@ -1,0 +1,38 @@
+.requestmoney-toolbar ion-title span
+{
+  
+        font-family: 'Light';
+        font-size: 1rem !important;
+}
+
+.requestmoney .money-holder .input-holder
+{
+    display: flex;
+    align-items: center;
+}
+
+.input-holder .sign-holder h1
+{
+    margin: 0;
+}
+
+.requestmoney .input-holder ion-input
+{
+    font-size: 3.5rem !important;
+    width: 250px !important;
+}
+
+
+.unit-holder ion-item
+{
+    margin: 0 auto;
+  width: fit-content;
+}
+
+.requestmoney-footer-toolbar ion-button
+{
+    --border-radius: 10px;
+    height: 50px !important;
+    font-family: 'Black';
+    font-size: 20px;
+}

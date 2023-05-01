@@ -1,0 +1,64 @@
+.profile-toolbar
+{
+    --border-width: 0;
+    --background: #0047CC;
+    --color: white;
+}
+
+.profile
+{
+    --background: #F8F9F9;
+}
+
+.profile .top-card
+{
+    padding-bottom: 20px !important;
+}
+
+.profile .top-card .img-holder
+{
+    padding-top: 20px;
+}
+.profile  .top-card .img-holder ion-avatar {
+    margin:  0 auto;
+    --border-radius: 12px; 
+}
+.profile  .top-card .details h5 {
+    color: #042c5c !important;
+    font-family: 'Heavy' !important;
+}
+.top-card .details p {
+    color: #77869e !important;
+    font-family: 'Medium' !important;
+    margin-top: 0 !important;
+}
+.top-card .badge-holder {
+    margin: 0 20px;
+    background: #f8f9f9;
+    border-radius: 12px;
+    padding: 10px 0;
+}
+.top-card .badge-holder .badge {
+    display: inline-block;
+    margin: 0 5px;
+}
+.bottom-section {
+    margin-top: 30px;
+}
+.bottom-section h5 {
+    color: #77869e !important;
+}
+.bottom-section .general {
+    margin-top: 30px;
+}
+.bottom-section .general .gen-list ion-item {
+    margin-top: 10px;
+    --background: white;
+}
+.bottom-section .general .gen-list ion-item ion-label h2 {
+    color: #042c5c;
+}
+.bottom-section .general .gen-list ion-item ion-label p {
+    color: #77869e;
+    font-family: 'Roman';
+}

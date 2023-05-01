@@ -1,0 +1,172 @@
+.wallet-toolbar
+{
+    --background: #f8f9f9 ;
+}
+.wallet-toolbar ion-title
+{
+    color: #042C5C;
+    font-family: 'Heavy';
+    font-size: 20px;
+}
+
+.wallet-toolbar ion-title span
+{
+    font-family: 'Roman' ;
+    font-size: 13px;
+}
+
+.wallet-toolbar .end-btn
+{
+    font-size: 30px;
+}
+
+.wallet
+{
+    --background: #f8f9f9 ;
+}
+
+
+.slider-holder
+{
+    margin-top: 10px;
+}
+
+#primary
+{
+    background: var(--ion-color-primary);
+    color: white ;
+}
+
+#gray
+{
+    background: #DFE7F5;
+
+}
+
+#gray   p{
+    color: black ;
+}
+
+.slide-content
+{
+    width: 100%;
+}
+.slider-holder .card
+{
+    border-radius: 1rem;
+    height: 50vw;
+    padding: 20px 10px;
+    width: 100%;
+    font-family: 'Medium' ;
+}
+
+.slider-holder .card .card-logo-holder
+{
+    padding-top: 2vh;
+}
+
+.card-logo-holder img
+{
+    height: 5vh;
+}
+
+.card-number-holder p 
+{
+    font-family: 'Courier';
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+.card-details p 
+{
+    font-family: 'Courier';
+    margin-bottom: 0;
+}
+
+.progress
+{
+    margin-top: 10px;
+}
+
+.progress ion-label
+{
+    color: #042C5C ;
+    font-family: 'Heavy' ;
+    font-size: 13px;
+}
+
+.progress ion-progress-bar
+{
+    --progress-background:#4DF1A1;
+    --border-radius: 2.5px;
+    --buffer-background:#F24750;
+    margin-top: 10px;
+}
+
+
+
+.statics ion-item
+{
+    --background: transparent;
+}
+.statics p
+{
+    font-family: 'Heavy' ;
+    color: #77869E ;
+    font-size: 13px;
+}
+
+.statics h3
+{
+    font-family: 'Heavy' ;
+    color: #042C5C ;
+    font-size: 16px;
+}
+
+
+
+.send-money-holder
+{
+    margin-top: 20px;
+}
+
+.send-money-holder .contact-holder
+{
+    margin-top: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.send-money-holder .contact-holder ::-webkit-scrollbar {
+    display: none !important;
+}
+
+.contact-holder .recip-card {
+    background: white;
+    border: 1px solid #dfe7f5;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 12px;
+    display: inline-block;
+    height: 130px;
+    margin: 0 10px;
+    padding: 10px 0;
+    width: 120px;
+}
+.contact-holder .recip-card .add-btn-holder {
+    height: 64px;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+.contact-holder .recip-card .add-btn-holder img {
+    height: 2.5rem;
+}
+.contact-holder .recip-card ion-avatar {
+    margin: 0 auto;
+}
+.contact-holder .recip-card p {
+    color: #77869e ;
+    font-family: 'Medium' ;
+    font-size: 0.9rem ;
+    margin: 5px 0 0 0 ;
+}

@@ -1,0 +1,7 @@
+{
+  "name": "ionbanking",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

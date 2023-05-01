@@ -1,0 +1,79 @@
+
+
+.the-form
+{
+    margin-top: 5vh;
+}
+
+.input-holder
+{
+    margin: 10px 0;
+}
+
+.input-label
+{
+    color: #77869E !important;
+    font-family: 'Roman' !important;
+    font-size: .9rem !important;
+}
+.input-item
+{
+    --highlight-color-invalid:red;
+    --highlight-color-valid: #2AD95A;
+}
+
+.verify-tick
+{
+    color: #2AD95A;
+}
+
+
+.rem-holder .rem-item
+{
+    --padding-start:0;
+}
+
+.rem-holder .rem-item .rem-check
+{
+    margin-right: 20px !important;
+}
+.rem-item .rem-label
+{
+    color: #77869E !important;
+    font-family: 'Roman' !important;
+    font-size: 0.9rem !important;
+}
+
+.rem-holder .forgot-button
+{
+    --background: transparent;
+    --box-shadow: none;
+    --color:var(--ion-color-primary) !important;
+    font-size: 0.9rem !important;
+    text-transform: none;
+}
+
+.btn-holder
+{
+    margin-top: 5vh;
+}
+
+.btn-holder .login-button
+{
+    --border-radius: 10px;
+    height: 3rem !important;
+    text-transform: none;
+}
+
+.bottom-holder .bottom-btn
+{
+    color: #77869E;
+    font-size: 16px;
+}
+
+.bottom-holder .bottom-btn span
+{
+    color: #042C5C;
+    font-family: 'Black';
+    margin: 0 10px 0 0 !important;
+}
