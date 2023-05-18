@@ -42,7 +42,6 @@ const Login: React.FC = () => {
       setMessageToast("Error en conexion con el usuario")
       setIsOpen(true)
     }
-    console.log(valor.error)
   }
   
   const [valuesInput,setValuesInput] = useState({
@@ -59,35 +58,17 @@ const Login: React.FC = () => {
   
   return (
     <IonPage>
-      <IonHeader className="login-header ion-no-border">
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/" />
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
       <IonContent className="login ion-padding-horizontal" fullscreen>
         <div className="ion-padding-bottom">
-          <h2>Welcome Login</h2>
-        </div>
-        <div className="social-holder">
-          <div className="btns-holder ion-text-center">
-            <IonButton className="btn">
-              <img src="assets/imgs/facebook.svg" alt="" />
-            </IonButton>
-
-            <IonButton className="btn">
-              <img src="assets/imgs/google.svg" alt="" />
-            </IonButton>
-          </div>
+          <h2>Bienvenido al Login</h2>
         </div>
         <div className="the-form">
           <div className="input-holder">
-            <IonLabel className="input-label">Username</IonLabel>
+            <IonLabel className="input-label">Email</IonLabel>
             <IonItem className="input-item">
               <IonInput
                 className="form-input"
-                placeholder="Enter Name"
+                placeholder="Correo electronico"
                 type="text"
                 name="email"
                 onIonInput={changeValues}
@@ -105,7 +86,7 @@ const Login: React.FC = () => {
             <IonItem className="input-item">
               <IonInput
                 className="form-input"
-                placeholder="Enter Password"
+                placeholder="Password"
                 type="password"
                 name="password"
                 onIonInput={changeValues}
@@ -124,12 +105,12 @@ const Login: React.FC = () => {
             <IonCol size="6">
               <IonItem className="rem-item" lines="none">
                 <IonCheckbox className="rem-check" slot="start" mode="ios" />
-                <IonLabel className="rem-label">Remember me</IonLabel>
+                <IonLabel className="rem-label">Recordar Contraseña</IonLabel>
               </IonItem>
             </IonCol>
 
             <IonCol size="6">
-              <IonButton className="forgot-button">Forgot password?</IonButton>
+              <IonButton className="forgot-button">Olvidaste Contraseña?</IonButton>
             </IonCol>
           </IonRow>
         </div>
@@ -142,11 +123,11 @@ const Login: React.FC = () => {
 
         <div className="bottom-holder flex al-center jc-center ion-text-center">
           <p className="bottom-btn">
-            Don’t have a account?
+            No tienes una cuenta?
           
           </p>
           <IonButton className="bottom-btn-span" routerLink="signup">
-              Signup
+              Registrar
             </IonButton>
         </div>
          <IonToast
