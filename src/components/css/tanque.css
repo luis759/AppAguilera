@@ -1,0 +1,17 @@
+.forma-tanque{
+    height: 17vh;
+    width: 28vw;
+    border-radius: 6vh;
+    z-index: 10000000;
+    overflow: hidden;
+    position: relative;
+}
+.water{
+    position: absolute;
+    height: 200%;
+    width: 200%;
+    left: -50%;
+    top:100%;
+    border-radius:40%;
+    background: rgba(237,59,59,0.5);
+}

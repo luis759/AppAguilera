@@ -1,5 +1,5 @@
 import axios from 'axios';
-const api="http://192.168.100.5/aguilera/aguilerafuel/public"
+const api="https://fuelmatic.io"
 export const getLoginApi = (datoSend:{
     email:string,
     password:string
@@ -9,4 +9,11 @@ export const getLoginApi = (datoSend:{
       }).catch((dato)=>{
         return dato
       });
+}
+export const getTanques = (): any => {
+  return axios.post(`${api}/api/getAlltanques`,{}).then((response) => {
+     return response;
+    }).catch((dato)=>{
+      return dato
+    });
 }

@@ -35,6 +35,7 @@ import Intro from "./pages/Intro/Intro";
 import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import Home from "./pages/Home/Home";
+import Tanques from "./pages/tanques/Tanques";
 import MainTabs from "./pages/Tabs/MainTabs";
 import Expenses from "./pages/Expenses/Expenses";
 import Wallet from "./pages/Wallet/Wallet";
@@ -94,7 +95,9 @@ const App: React.FC = () => {
           <Route exact path="/home">
             <Home />
           </Route>
-
+          <Route exact path="/tanques">
+            <Tanques />
+          </Route>
           <Route exact path="/request">
             <Request />
           </Route>
