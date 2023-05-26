@@ -21,6 +21,7 @@ import {
   CircularProgressbarWithChildren,
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { useParams } from "react-router";
 import Designtanque from "../../components/designtanque";
 import SelectransactionModal from "../Modals/Selectransactionmodal/Selectransactionmodal";
 
@@ -28,6 +29,18 @@ import "./Tanques.css";
 
 const Tanques: React.FC = () => {
   const [dataTanque,setDataTanque]=useState([{porcentaje:50,nombre:"tanque"},{porcentaje:45,nombre:"tanque1"},{porcentaje:15,nombre:"tanque2"}] as any)
+
+  const params=useParams()
+  useEffect(()=>{
+    primeraAccion()
+  },[params])
+  const primeraAccion = async  ()=>{
+    let t: any;
+    t=setInterval( async ()=> {
+      
+    }, 10000);
+  }
+
   return (
     <IonPage>
       <IonHeader className="ion-no-border">
