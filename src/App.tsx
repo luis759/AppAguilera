@@ -40,7 +40,7 @@ import MainTabs from "./pages/Tabs/MainTabs";
 import Expenses from "./pages/Expenses/Expenses";
 import Wallet from "./pages/Wallet/Wallet";
 import Profile from "./pages/Profile/Profile";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import UIContext from "./my-context";
@@ -55,6 +55,8 @@ import Successmodal from "./pages/Modals/Successmodal/Successmodal";
 import Addincome from "./pages/Addincome/Addincome";
 import Send from "./pages/Send/Send";
 import Notifications from "./pages/Notifications/Notifications";
+import { STORAGEKEY } from "./hook/database/interfaces";
+import { useStorage } from "./hook/database/useStorage";
 setupIonicReact({
   mode: "md",
 });
@@ -62,6 +64,29 @@ setupIonicReact({
 const App: React.FC = () => {
   const { showFab } = React.useContext(UIContext);
   const [modalOpen, setModalOpen] = useState(false);
+  const {storage,getValuesKey}= useStorage()
+  const history = useHistory();
+  const [url,gotoURL]=useState("")
+  useEffect(()=>{
+    if(storage){
+      const mostrarValores= async ()=>{
+        const valores= await getValuesKey(STORAGEKEY.token)
+        if(valores){
+          if(valores.length>0){
+            gotoURL("/tanques")
+          }else{
+            
+            gotoURL("/login")
+          }
+        }else{
+            
+          gotoURL("/login")
+        }
+      }
+      mostrarValores()
+    }
+   
+  },[storage])
   let fabButtonStyle = showFab ? undefined : { display: "none" };
 
   const handleModalClose = () => {
@@ -135,7 +160,7 @@ const App: React.FC = () => {
          
 
           <Route exact path="/">
-            <Redirect to="/login" />
+            <Redirect to={url} />
           </Route>
         </IonRouterOutlet>
 

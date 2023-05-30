@@ -19,11 +19,13 @@ import {
 } from "@ionic/react";
 import { useHistory } from 'react-router-dom';
 import { checkmarkCircle } from "ionicons/icons";
-
+import { STORAGEKEY,keytoken } from "../../hook/database/interfaces";
 import "./Login.css";
 import {getLoginApi} from "../../apis/apisUser"
 import { useState } from "react";
+import { useStorage } from "../../hook/database/useStorage";
 const Login: React.FC = () => {
+  const {getValuesKey,addValuesKey,deleteAllKey,updateValuesKey,deleteValuesKey}= useStorage()
   const history = useHistory();
   const [isOpen, setIsOpen] = useState(false);
   const [messageToast, setMessageToast] = useState("");
@@ -32,8 +34,12 @@ const Login: React.FC = () => {
     const valor= await getLoginApi(valuesInput)
     if(valor.status){
       if(Number(valor.status)===200){
+        let valoringreso:keytoken={}as any
+        valoringreso.expiretoken=valor.data.expires_at
+        valoringreso.token=valor.data.access_token
+        valoringreso.typetoken=valor.data.token_type
+        const valorAgregado = await addValuesKey(STORAGEKEY.token,valoringreso)
         history.push('/home');
-
       }else{
         setMessageToast("Error en conexion con el usuario")
         setIsOpen(true)
