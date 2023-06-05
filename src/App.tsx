@@ -85,7 +85,6 @@ const App: React.FC = () => {
       }
       mostrarValores()
     }
-   
   },[storage])
   let fabButtonStyle = showFab ? undefined : { display: "none" };
 
@@ -154,13 +153,10 @@ const App: React.FC = () => {
           </Route>
 
           <Route path="/addincome" component={Addincome}>
-            
           </Route>
 
-         
-
           <Route exact path="/">
-            <Redirect to={url} />
+            <Redirect to="/intro" />
           </Route>
         </IonRouterOutlet>
 

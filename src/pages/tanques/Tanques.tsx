@@ -26,21 +26,48 @@ import Designtanque from "../../components/designtanque";
 import SelectransactionModal from "../Modals/Selectransactionmodal/Selectransactionmodal";
 
 import "./Tanques.css";
+import { useStorage } from "../../hook/database/useStorage";
+import { getTanques } from "../../apis/apisUser";
+import { STORAGEKEY } from "../../hook/database/interfaces";
 
 const Tanques: React.FC = () => {
-  const [dataTanque,setDataTanque]=useState([{porcentaje:50,nombre:"tanque"},{porcentaje:45,nombre:"tanque1"},{porcentaje:15,nombre:"tanque2"}] as any)
-
+  const [dataTanque,setDataTanque]=useState([] as any)
+  const [colores,setColores] =useState({} as any)
+  const {getValuesKey,addValuesKey,deleteAllKey,updateValuesKey,deleteValuesKey,storage}= useStorage()
   const params=useParams()
+  const [datatoken,setToken]=useState({})
   useEffect(()=>{
-    primeraAccion()
-  },[params])
-  const primeraAccion = async  ()=>{
-    let t: any;
-    t=setInterval( async ()=> {
-      
-    }, 10000);
-  }
-
+    if(storage){
+      const mostrarValores= async ()=>{
+        const valores= await getValuesKey(STORAGEKEY.token)
+      if(valores){
+        setToken(valores[0])
+        getInfosValores(valores)
+        let t: any;
+        t=setInterval( async ()=> {
+         getInfosValores(valores)
+        }, 5000);
+        }
+      }
+      mostrarValores()
+    }
+  },[storage])
+ const getInfosValores= async (valores:any)=>{
+  const valoresTanques = await getTanques(valores[0].token,valores[0].typetoken)
+  setColores(valoresTanques.data.colores)
+  setDataTanque(valoresTanques.data.tanques.map((dato:any)=>{
+    return({
+      porcentaje:Number(dato.porcentaje).toFixed(2),
+      nombre:dato.Nombre,
+      id:dato.id,
+      niveles:{
+        NivelCritico:dato.NivelCritico,
+        NivelBajo:dato.NivelBajo,
+        NivelAlto:dato.NivelAlto
+      }
+    })
+  }))
+ }
   return (
     <IonPage>
       <IonHeader className="ion-no-border">
@@ -62,7 +89,7 @@ const Tanques: React.FC = () => {
           <IonCardHeader className="ion-text-center">
             <IonCardTitle>Nombre: {retorno.nombre}</IonCardTitle>
           </IonCardHeader>
-          <Designtanque key={key} porcentaje={retorno.porcentaje} niveles={{NivelCritico:25,NivelBajo:50,NivelAlto:80}} colores={{color_bajo:"red",color_medio:"yellow",color_alto:"green"}}/>
+          <Designtanque key={key} porcentaje={retorno.porcentaje} niveles={retorno.niveles} colores={colores}/>
          </IonCard>
           </>)
         })}        

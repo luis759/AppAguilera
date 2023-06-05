@@ -34,12 +34,13 @@ const Login: React.FC = () => {
     const valor= await getLoginApi(valuesInput)
     if(valor.status){
       if(Number(valor.status)===200){
+        console.log(valor)
         let valoringreso:keytoken={}as any
         valoringreso.expiretoken=valor.data.expires_at
         valoringreso.token=valor.data.access_token
         valoringreso.typetoken=valor.data.token_type
         const valorAgregado = await addValuesKey(STORAGEKEY.token,valoringreso)
-        history.push('/home');
+        history.push('/tanques');
       }else{
         setMessageToast("Error en conexion con el usuario")
         setIsOpen(true)

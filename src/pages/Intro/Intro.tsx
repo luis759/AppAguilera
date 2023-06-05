@@ -1,16 +1,9 @@
 import {
-  IonBackButton,
   IonButton,
   IonButtons,
-  IonCol,
   IonContent,
-  IonGrid,
   IonHeader,
   IonPage,
-  IonRow,
-  IonSlide,
-  IonSlides,
-  IonTitle,
   IonToolbar,
 } from "@ionic/react";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -31,60 +24,9 @@ import 'swiper/css/scrollbar';
 const Intro: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader className="ion-no-border">
-        <IonToolbar>
-          <IonButtons slot="end">
-            <IonButton className="skip-button">SKIP</IonButton>
-          </IonButtons>
-        </IonToolbar>
-      </IonHeader>
       <IonContent className="ion-padding intro" fullscreen>
-        <div className="img-holder ion-text-center animate__animated animate__bounce">
-          <img src="assets/imgs/phone.svg" />
-        </div>
-        <Swiper
-          modules={[Autoplay, Pagination]}
-          autoplay={true}
-          pagination={true}
-        >
-          <SwiperSlide>
-            <div className="slide-content ion-text-center ion-padding-horizontal">
-              <h4 className="sm-title ion-text-wrap">
-                Welcome, Manage your expenses
-              </h4>
-              <p className="sm-detail ion-text-wrap">
-                easily manage your expenses by your mobile
-              </p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide-content ion-text-center ion-padding-horizontal">
-              <h4 className="sm-title ion-text-wrap">
-                Welcome, Manage your expenses
-              </h4>
-              <p className="sm-detail ion-text-wrap">
-                easily manage your expenses by your mobile
-              </p>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="slide-content ion-text-center ion-padding-horizontal">
-              <h4 className="sm-title ion-text-wrap">
-                Welcome, Manage your expenses
-              </h4>
-              <p className="sm-detail ion-text-wrap">
-                easily manage your expenses by your mobile
-              </p>
-            </div>
-          </SwiperSlide>
-        </Swiper>
-
-        <div className="btns-holder ion-text-center">
-          <IonButton routerLink="/login" className="btn">Login</IonButton>
-
-          <IonButton routerLink="signup" id="signup" className="btn">
-            Signup
-          </IonButton>
+        <div style={{height:"100%",width:"100%"}}>
+          <img src="assets/imgs/index.jpg"  style={{height:"100%",width:"100%"}}/>
         </div>
       </IonContent>
     </IonPage>
