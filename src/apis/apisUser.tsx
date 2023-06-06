@@ -1,6 +1,6 @@
 import axios from 'axios';
-const apidev="https://fuelmatic.io"
-const api="http://localhost/aguilera/aguilerafuel/public"
+const api="https://fuelmatic.io"
+const apidev="http://localhost/aguilera/aguilerafuel/public"
 
 export const getLoginApi = (datoSend:{
     email:string,
@@ -20,6 +20,13 @@ export const getTanques = (token:any,typetoken:any): any => {
   }
   }
   return axios.get(`${api}/api/tanqueInfo`,config).then((response) => {
+     return response;
+    }).catch((dato)=>{
+      return dato
+    });
+}
+export const getImageStart = (): any => {
+  return axios.get(`${api}/api/infoImage`,{}).then((response) => {
      return response;
     }).catch((dato)=>{
       return dato

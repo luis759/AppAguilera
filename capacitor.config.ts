@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.ionwizard.ionreactbanking',
-  appName: 'ionbanking',
+  appId: 'com.fuelmatic.ionfulmatic',
+  appName: 'Fuelmatic',
   webDir: 'build',
   bundledWebRuntime: false
 };

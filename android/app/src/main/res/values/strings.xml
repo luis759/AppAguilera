@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">ionbanking</string>
-    <string name="title_activity_main">ionbanking</string>
-    <string name="package_name">com.ionwizard.ionreactbanking</string>
-    <string name="custom_url_scheme">com.ionwizard.ionreactbanking</string>
+    <string name="app_name">Fuelmatic</string>
+    <string name="title_activity_main">Fuelmatic</string>
+    <string name="package_name">com.fuelmatic.ionfulmatic</string>
+    <string name="custom_url_scheme">com.fuelmatic.ionfulmatic</string>
 </resources>

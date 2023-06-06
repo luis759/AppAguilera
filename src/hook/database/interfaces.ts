@@ -4,5 +4,6 @@ export interface keytoken{
     typetoken:string
 }
 export const STORAGEKEY={
-    token:"tokens"
+    token:"tokens",
+    imagenstart:"imagenstart"
 }
