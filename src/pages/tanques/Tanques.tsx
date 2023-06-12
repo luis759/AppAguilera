@@ -55,7 +55,7 @@ const Tanques: React.FC = () => {
         valoresTanquesySitios(valores)
       if(valores){
         setToken(valores)
-        iniciarInterValos([])
+        iniciarInterValos([],valores)
         }
       }
       mostrarValores()
@@ -106,25 +106,33 @@ const Tanques: React.FC = () => {
   if(BuscarArreglo.some((e:any)=> e==="")){
     iniciarInterValos(showTanques.map((tanque:any)=>{
       return(tanque.id)
-    }))
+    }),[])
 
   }else{
     if(BuscarArreglo.length>0){
-      iniciarInterValos(BuscarArreglo)
+      iniciarInterValos(BuscarArreglo,[])
     }
   }
  }
- const iniciarInterValos=(tanques:any)=>{
+ const iniciarInterValos=(tanques:any,tokena:any)=>{
   const interval_id = window.setInterval(function(){}, Number.MAX_SAFE_INTEGER);
 
   // Clear any timeout/interval up to that id
   for (let i = 1; i < interval_id; i++) {
     window.clearInterval(i);
   }
-  getInfosValores(datatoken,tanques)
-  t=setInterval( async ()=> {
+  if(tokena.length>0){
+    getInfosValores(tokena,tanques)
+    t=setInterval( async ()=> {
+      getInfosValores(tokena,tanques)
+     }, 5000);
+  }else{
     getInfosValores(datatoken,tanques)
-   }, 5000);
+    t=setInterval( async ()=> {
+      getInfosValores(datatoken,tanques)
+     }, 5000);
+  }
+
  }
   return (
     <IonPage>
