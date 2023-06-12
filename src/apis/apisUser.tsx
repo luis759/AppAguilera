@@ -25,7 +25,32 @@ export const getTanques = (token:any,typetoken:any): any => {
       return dato
     });
 }
-
+export const getAlltanques = (token:any,typetoken:any): any => {
+  const config = {
+    headers: { 
+      Authorization: `${typetoken} ${token}`,
+    Accept :'application/json', 
+  }
+  }
+  return axios.get(`${api}/api/allTanques`,config).then((response) => {
+     return response;
+    }).catch((dato)=>{
+      return dato
+    });
+}
+export const getallSitios = (token:any,typetoken:any): any => {
+  const config = {
+    headers: { 
+      Authorization: `${typetoken} ${token}`,
+    Accept :'application/json', 
+  }
+  }
+  return axios.get(`${api}/api/allSitios`,config).then((response) => {
+     return response;
+    }).catch((dato)=>{
+      return dato
+    });
+}
 export const getTransaccionFechaTanque = (token:any,typetoken:any,fecha:any,id:any): any => {
   const config = {
     headers: { 
