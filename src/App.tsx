@@ -55,6 +55,7 @@ import Successmodal from "./pages/Modals/Successmodal/Successmodal";
 import Addincome from "./pages/Addincome/Addincome";
 import Send from "./pages/Send/Send";
 import Notifications from "./pages/Notifications/Notifications";
+import Tanqueinfo from "./pages/Tanqueinfo/Tanqueinfo";
 setupIonicReact({
   mode: "md",
 });
@@ -128,7 +129,9 @@ const App: React.FC = () => {
           <Route exact path="/notifications">
             <Notifications />
           </Route>
-
+          <Route exact path="/tanqueinfo/:name/:id">
+            <Tanqueinfo />
+          </Route>
           <Route path="/addincome" component={Addincome}>
           </Route>
 

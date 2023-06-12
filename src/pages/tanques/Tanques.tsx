@@ -4,11 +4,18 @@ import {
   IonCard,
   IonCardHeader,
   IonCardTitle,
+  IonCol,
   IonContent,
+  IonGrid,
   IonHeader,
   IonIcon,
+  IonItem,
+  IonLabel,
   IonList,
   IonPage,
+  IonRow,
+  IonSelect,
+  IonSelectOption,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
@@ -60,6 +67,8 @@ const Tanques: React.FC = () => {
       porcentaje:Number(dato.porcentaje).toFixed(2),
       nombre:dato.Nombre,
       id:dato.id,
+      litrosActuales:dato.LitrosActuales,
+      Capacidad:dato.Capacidad,
       niveles:{
         NivelCritico:dato.NivelCritico,
         NivelBajo:dato.NivelBajo,
@@ -82,17 +91,50 @@ const Tanques: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen  className="ion-padding">
       <IonList>
-   
-        {dataTanque.map((retorno:any,key:number)=>{
+   <IonGrid>
+    <IonRow>
+      <IonCol size="12">
+        <IonItem>
+          <IonLabel>
+            Sitios
+          </IonLabel>
+          <IonSelect aria-label="Sitios" interface="action-sheet" placeholder="Select Sitios">
+              <IonSelectOption value="apples">Apples</IonSelectOption>
+              <IonSelectOption value="oranges">Oranges</IonSelectOption>
+              <IonSelectOption value="bananas">Bananas</IonSelectOption>
+            </IonSelect>
+        </IonItem>
+        <IonItem>
+          
+        <IonLabel>
+            Tanques Mostrar
+          </IonLabel>
+          <IonSelect aria-label="tanques" placeholder="Select Tanques Mostrar" multiple={true}>
+            <IonSelectOption value="apples">Apples</IonSelectOption>
+            <IonSelectOption value="oranges">Oranges</IonSelectOption>
+            <IonSelectOption value="bananas">Bananas</IonSelectOption>
+          </IonSelect>
+        </IonItem>
+        <IonButton expand="block">Buscar</IonButton>
+      </IonCol>
+    </IonRow>
+    <IonRow>
+    {dataTanque.map((retorno:any,key:number)=>{
           return(<>
-      <IonCard key={key}>
+          <IonCol size="6">
+          <IonCard key={key} routerLink={"/tanqueinfo/"+retorno.nombre+"/"+retorno.id}>
           <IonCardHeader className="ion-text-center">
             <IonCardTitle>Nombre: {retorno.nombre}</IonCardTitle>
           </IonCardHeader>
-          <Designtanque key={key} porcentaje={retorno.porcentaje} niveles={retorno.niveles} colores={colores}/>
+          <Designtanque key={key} porcentaje={retorno.porcentaje} Capacidad={retorno.Capacidad}  litrosActuales={retorno.litrosActuales} niveles={retorno.niveles} colores={colores}/>
          </IonCard>
+          </IonCol>
+    
           </>)
-        })}        
+        })}
+    </IonRow>
+   </IonGrid>
+               
         
     </IonList>
       </IonContent>

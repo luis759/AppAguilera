@@ -1,44 +1,49 @@
 
-import { CreateAnimation, IonBadge } from "@ionic/react";
+import { CreateAnimation, IonBadge, IonLabel } from "@ionic/react";
 import React, { useEffect, useState } from "react"
 import "./css/tanque.css"
 const Designtanque = (porcentaje:any) => {
     const [dataTanque,setData]= useState({})
     const [water,setwater]= useState({})
     const [badge,setBadge]= useState({})
+    const [campos,setValorCampos]= useState({
+      litrosactuales:0,
+      capacidad:0
+    })
     useEffect(()=>{
-        if(porcentaje.porcentaje < porcentaje.niveles.NivelCritico){
+      
+      let valor=(100-porcentaje.porcentaje)<0?0:((100-porcentaje.porcentaje)>100?100:(100-porcentaje.porcentaje))
+  
+        if(Number(porcentaje.porcentaje) < Number(porcentaje.niveles.NivelCritico)){
             setData({
                 boxShadow:"0 0 20px "+porcentaje.colores.color_bajo,
                 textShadow:"0 0 20px "+porcentaje.colores.color_bajo,
                 color:"black",
                 border:"1px solid "+porcentaje.colores.color_bajo,
-            })
-            setBadge({
-              background:porcentaje.colores.color_bajo,
-              color:"black",
-              fontWeight:"bolder"
+                justifyContent: "center",
+                display: "flex",
+                alignItems: "center"
             })
             setwater({ 
                 background:porcentaje.colores.color_bajo,
-                top:100-porcentaje.porcentaje 
+                top:""+(valor)+"%",
+                zIndex:"-555"
             })
-          } else if(porcentaje.porcentaje < porcentaje.niveles.NivelBajo){
+          } else if(Number(porcentaje.porcentaje) < Number(porcentaje.niveles.NivelBajo)){
             setData({
                 boxShadow:"0 0 20px "+porcentaje.colores.color_medio,
                 textShadow:"0 0 20px "+porcentaje.colores.color_medio,
                 color:"black",
                 border:"1px solid "+porcentaje.colores.color_medio,
+                justifyContent: "center",
+                display: "flex",
+                alignItems: "center"
           
-            })
-            setBadge({
-              background:porcentaje.colores.color_medio,
-              color:"black",
-              fontWeight:"bolder"
             })
             setwater({ 
                 background:porcentaje.colores.color_medio,
-                top:100-porcentaje.porcentaje 
+                top:""+(valor)+"%" ,
+                zIndex:"-555"
             })
           }else{
             setData({
@@ -46,18 +51,31 @@ const Designtanque = (porcentaje:any) => {
                 textShadow:"0 0 20px "+porcentaje.colores.color_alto,
                 color:"black",
                 border:"1px solid "+porcentaje.colores.color_alto,
+                justifyContent: "center",
+                display: "flex",
+                alignItems: "center"
              
-            })
-            setBadge({
-              background:porcentaje.colores.color_alto,
-              color:"black",
-              fontWeight:"bolder"
             })
             setwater({ 
                 background:porcentaje.colores.color_alto,
-                top:100-porcentaje.porcentaje 
+                top:""+(valor)+"%" ,
+                zIndex:"-555"
             })
           }
+          if(porcentaje.Capacidad){
+            setValorCampos({
+              litrosactuales:porcentaje.litrosActuales?porcentaje.litrosActuales:0,
+              capacidad:porcentaje.Capacidad?porcentaje.Capacidad:0
+            })
+          }
+          
+          setBadge({
+            color:"black",
+            fontWeight:"bolder",
+            display: "flex",
+            alignItems: "center",
+            height:"85%"
+          })
 
     },[porcentaje])
   return(
@@ -82,15 +100,19 @@ const Designtanque = (porcentaje:any) => {
     { offset: 1, transform: 'scale(1) rotate(360deg)' },
   ]}
     >
-    <div className={`water ${porcentaje.porcentaje<=25? "crit" : (porcentaje.porcentaje>75?"alt":"med")}`} style={water}></div>
+    <div className={`water ${porcentaje.porcentaje<=25? "crit ion-text-center" : (porcentaje.porcentaje>75?"alt ion-text-center":"med ion-text-center")}`} style={water}></div>
 </CreateAnimation>
 
+<p style={badge}>{porcentaje.porcentaje} % </p>
   </div>
- 
     </div>
-    <p className="ion-text-center">
-  <IonBadge color="primary" style={badge}>{porcentaje.porcentaje} % </IonBadge>
-  </p>
+    <p className="ion-no-margin ion-margin-top">
+    <IonLabel className="ion-text-center">
+ <p className="ion-no-margin">Litros: <IonBadge>{campos.litrosactuales}</IonBadge></p>
+ <p className="ion-no-margin">Capacidad: <IonBadge>{campos.capacidad}</IonBadge></p>
+  </IonLabel>
+    </p>
+
 
     </>
   )

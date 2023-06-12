@@ -128,15 +128,6 @@ const Login: React.FC = () => {
           </IonButton>
         </div>
 
-        <div className="bottom-holder flex al-center jc-center ion-text-center">
-          <p className="bottom-btn">
-            No tienes una cuenta?
-          
-          </p>
-          <IonButton className="bottom-btn-span" routerLink="signup">
-              Registrar
-            </IonButton>
-        </div>
          <IonToast
           isOpen={isOpen}
           message={messageToast}
