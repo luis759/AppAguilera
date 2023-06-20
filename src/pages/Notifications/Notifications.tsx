@@ -50,6 +50,8 @@ const Notifications: React.FC = () => {
       return({
         nombre:dato.nombre,
         litros:dato.cantidad,
+        fecha:dato.fecha,
+        hora:dato.hora,
         datodescarga:Number(dato.cantidad)>0?"Carga":"Descarga",
         color:Number(dato.cantidad)>0?"success":"danger",
       })
@@ -84,6 +86,8 @@ const Notifications: React.FC = () => {
                 <h5 className="ion-text-wrap">
                   El tanque {datoMostrar.nombre}  ha tenido una {datoMostrar.datodescarga} de {datoMostrar.litros} litros
                 </h5>
+                <p>fecha : {datoMostrar.fecha}</p>
+                <p>hora : {datoMostrar.hora}</p>
               </IonLabel>
             </IonItem>
               </>)

@@ -107,20 +107,6 @@ const Login: React.FC = () => {
           </div>
         </div>
 
-        <div className="rem-holder">
-          <IonRow>
-            <IonCol size="6">
-              <IonItem className="rem-item" lines="none">
-                <IonCheckbox className="rem-check" slot="start" mode="ios" />
-                <IonLabel className="rem-label">Recordar Contraseña</IonLabel>
-              </IonItem>
-            </IonCol>
-
-            <IonCol size="6">
-              <IonButton className="forgot-button">Olvidaste Contraseña?</IonButton>
-            </IonCol>
-          </IonRow>
-        </div>
 
         <div className="btn-holder">
           <IonButton expand="block" className="login-button" onClick={()=>{actionSend()}}>

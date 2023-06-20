@@ -50,6 +50,8 @@ const Tanqueinfo: React.FC<any> = () => {
       nombre:dato.nombre,
       litros:dato.cantidad,
       fecha:dato.fecha,
+      hora:dato.hora,
+      tipo:dato.tipoPro,
       datodescarga:Number(dato.cantidad)>0?"Carga":"Descarga",
       color:Number(dato.cantidad)>0?"success":"danger",
     })
@@ -88,16 +90,22 @@ const Tanqueinfo: React.FC<any> = () => {
             {dataNotificaciones.map((dato:any)=>{
               return(<>
                 <IonItem lines="none">
-                    <div className="start-slot" slot="start">
-                      <img src="assets/imgs/Gas.svg" alt="" />
-                    </div>
+                <IonAvatar slot="start">
+      <IonIcon icon={dato.color==="danger"?arrowDownCircleOutline:arrowUpCircleOutline} color={dato.color} size="large"></IonIcon>
+              </IonAvatar>
                     <IonLabel>
                       <h4>{dato.datodescarga}</h4>
-                      <p>{dato.fecha}</p>
+                      <p>fecha: {dato.fecha}</p>
+                      <p>hora: {dato.hora}</p>
                     </IonLabel>
+                    
                     <div className="end-slot" slot="end">
                       <h5 color={dato.color}>{dato.litros}</h5>
+                    <IonLabel>
+                      <p> {dato.tipo} </p>
+                    </IonLabel>
                     </div>
+                  
                   </IonItem>
               </>)
             })}

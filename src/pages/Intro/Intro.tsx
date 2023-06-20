@@ -79,7 +79,7 @@ const Intro: React.FC = () => {
   }
   return (
     <IonPage>
-      <IonContent className="ion-padding intro" fullscreen>
+      <IonContent className="intro" fullscreen>
         <div style={{height:"100%",width:"100%"}}>
           <img src={imagenView}  style={{height:"100%",width:"100%"}}/>
         </div>
