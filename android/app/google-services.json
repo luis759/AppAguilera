@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "804192142207",
+    "project_id": "fuelmatic-50c24",
+    "storage_bucket": "fuelmatic-50c24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804192142207:android:ce90fb841d92a222a8504a",
+        "android_client_info": {
+          "package_name": "com.fuelmatic.ionfulmatic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804192142207-psbg7gp68qpvji3b1278sn5ckouns9uq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaZ2aP0DTh3-w_dRh6g6kWBRpx7Isz4pM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804192142207-psbg7gp68qpvji3b1278sn5ckouns9uq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
