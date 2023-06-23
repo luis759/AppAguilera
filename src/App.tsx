@@ -11,7 +11,7 @@ import {
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { ellipse, share, square, triangle } from "ionicons/icons";
+import { ellipse, informationCircleSharp, share, square, triangle } from "ionicons/icons";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -44,7 +44,12 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
 import UIContext from "./my-context";
-import Selectransaction from "./pages/Modals/Selectransactionmodal/Selectransactionmodal";
+import {
+  ActionPerformed,
+  PushNotificationSchema,
+  PushNotifications,
+  Token,
+} from '@capacitor/push-notifications';
 import SelectransactionModal from "./pages/Modals/Selectransactionmodal/Selectransactionmodal";
 import Request from "./pages/Request/Request";
 import Requestmoney from "./pages/Requestmoney/Requestmoney";
@@ -66,10 +71,47 @@ const App: React.FC = () => {
  
   let fabButtonStyle = showFab ? undefined : { display: "none" };
 
+  const Iniciar = ()=>{
+    console.log('Initializing HomePage');
+
+    // Request permission to use push notifications
+    // iOS will prompt user and return if they granted permission or not
+    // Android will just grant without prompting
+    PushNotifications.requestPermissions().then(result => {
+      if (result.receive === 'granted') {
+        // Register with Apple / Google to receive push via APNS/FCM
+        PushNotifications.register();
+      } else {
+        // Show some error
+      }
+    });
+
+    PushNotifications.addListener('registration', (token: Token) => {
+      console.log(token)
+    });
+
+    PushNotifications.addListener('registrationError', (error: any) => {
+        console.log(error)
+    });
+
+    PushNotifications.addListener(
+      'pushNotificationReceived',
+      (notification: PushNotificationSchema) => {
+        console.log(notification)
+      },
+    );
+
+    PushNotifications.addListener(
+      'pushNotificationActionPerformed',
+      (notification: ActionPerformed) => {
+        console.log(JSON.stringify(notification))
+      },
+    );
+  }
+  Iniciar()
   const handleModalClose = () => {
     setModalOpen(false);
   };
-
   return (
     <IonApp>
       <IonPage>

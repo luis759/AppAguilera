@@ -1,0 +1,9 @@
+{
+  "registration_ids": ["dFkyBKepTkCOONyXJTlb1E:APA91bGj3n3-qgN2U9YDDtpaP2X_TaD1vT6im-qsRgokJr428oo8tBRrUEcYgRm4LqRR6gXyVgqLktEaQ6qoEPlY4tIPGiunJRiFS0vuw5KsFhSAf6bpGmcDSmQK33pa-qCKdGlOHyKg"],
+  "notification": {
+    "title": "Jose tomas Colmenras",
+    "body": "Debe darnos un aumento.",
+    "badge":"1"
+  }
+}
+https://fcm.googleapis.com/fcm/send
