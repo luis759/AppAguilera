@@ -4,7 +4,8 @@ const apidev="http://localhost/aguilera/aguilerafuel/public"
 
 export const getLoginApi = (datoSend:{
     email:string,
-    password:string
+    password:string,
+    tokenUserAPP:any
 }): any => {
     return axios.post(`${api}/api/loginapp`,datoSend,{}).then((response) => {
        return response;
