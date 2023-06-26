@@ -5,5 +5,6 @@ export interface keytoken{
 }
 export const STORAGEKEY={
     token:"tokens",
-    imagenstart:"imagenstart"
+    imagenstart:"imagenstart",
+    tokennotifi:"tokennotifi"
 }

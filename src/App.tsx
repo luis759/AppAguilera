@@ -61,6 +61,8 @@ import Addincome from "./pages/Addincome/Addincome";
 import Send from "./pages/Send/Send";
 import Notifications from "./pages/Notifications/Notifications";
 import Tanqueinfo from "./pages/Tanqueinfo/Tanqueinfo";
+import { useStorage } from "./hook/database/useStorage";
+import { STORAGEKEY } from "./hook/database/interfaces";
 setupIonicReact({
   mode: "md",
 });
@@ -68,47 +70,61 @@ setupIonicReact({
 const App: React.FC = () => {
   const { showFab } = React.useContext(UIContext);
   const [modalOpen, setModalOpen] = useState(false);
- 
+  const {storage,getValuesKey,addValuesKey,deleteAllKey}= useStorage()
+  useEffect(()=>{
+    if(storage){
+      const mostrarValores= async ()=>{
+        const valorNotifiacion= await getValuesKey(STORAGEKEY.tokennotifi)
+        Iniciar(valorNotifiacion)
+      }
+      mostrarValores()
+    }
+  },[storage])
   let fabButtonStyle = showFab ? undefined : { display: "none" };
 
-  const Iniciar = ()=>{
-    console.log('Initializing HomePage');
+  const Iniciar = (tokenNotificacion:any)=>{
 
     // Request permission to use push notifications
     // iOS will prompt user and return if they granted permission or not
     // Android will just grant without prompting
     PushNotifications.requestPermissions().then(result => {
       if (result.receive === 'granted') {
-        // Register with Apple / Google to receive push via APNS/FCM
-        PushNotifications.register();
+        if(tokenNotificacion){
+          if(tokenNotificacion.length>0){
+
+          }else{
+            PushNotifications.register();
+          }
+        }else{
+          PushNotifications.register();
+        }
+       
       } else {
-        // Show some error
+
       }
     });
 
-    PushNotifications.addListener('registration', (token: Token) => {
+    PushNotifications.addListener('registration', async (token: Token) => {
       console.log(token)
+      const borrado = await deleteAllKey(STORAGEKEY.tokennotifi)
+      const valorAgregado = await addValuesKey(STORAGEKEY.tokennotifi,token)
     });
 
     PushNotifications.addListener('registrationError', (error: any) => {
-        console.log(error)
     });
 
     PushNotifications.addListener(
       'pushNotificationReceived',
       (notification: PushNotificationSchema) => {
-        console.log(notification)
       },
     );
 
     PushNotifications.addListener(
       'pushNotificationActionPerformed',
       (notification: ActionPerformed) => {
-        console.log(JSON.stringify(notification))
       },
     );
   }
-  Iniciar()
   const handleModalClose = () => {
     setModalOpen(false);
   };
