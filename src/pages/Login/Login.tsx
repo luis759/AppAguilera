@@ -36,6 +36,9 @@ const Login: React.FC = () => {
       ...valuesInput,
       tokenUserAPP:valorToken.length>0?valorToken[0].value:""})
       console.log(valor)
+      console.log({
+        ...valuesInput,
+        tokenUserAPP:valorToken.length>0?valorToken[0].value:""})
     if(valor.status){
       if(Number(valor.status)===200){
         let valoringreso:keytoken={}as any
