@@ -18,11 +18,12 @@ import { useContext, useEffect, useState } from "react";
 import "./Tanqueinfo.css";
 import { arrowDownCircleOutline, arrowUpCircleOutline } from "ionicons/icons";
 import { useStorage } from "../../hook/database/useStorage";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { STORAGEKEY } from "../../hook/database/interfaces";
 import { getNotificaciones, getTransaccionFechaTanque } from "../../apis/apisUser";
 
 const Tanqueinfo: React.FC<any> = () => {
+  const history = useHistory();
   const [dataNotificaciones,setNotifiaciones]=useState([] as any)
   const [token,setToken]=useState({} as any)
   const [fecha,setFecha]=useState("")
@@ -45,6 +46,13 @@ const Tanqueinfo: React.FC<any> = () => {
   },[storage])
  const getInfosValores= async (valores:any,valorFecha:string,params:any)=>{
   const valoreTransaccionTanques = await getTransaccionFechaTanque(valores.token,valores.typetoken,valorFecha,params.id)
+  if(valoreTransaccionTanques.response){
+    if(valoreTransaccionTanques.response.status==401){
+        deleteAllKey(STORAGEKEY.token)
+        deleteAllKey(STORAGEKEY.tokennotifi)
+        history.push('/login');
+    }
+  }
   setNotifiaciones(valoreTransaccionTanques.data.map((dato:any)=>{
     return({
       nombre:dato.nombre,

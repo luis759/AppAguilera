@@ -28,7 +28,7 @@ import {
   CircularProgressbarWithChildren,
 } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import Designtanque from "../../components/designtanque";
 import SelectransactionModal from "../Modals/Selectransactionmodal/Selectransactionmodal";
 
@@ -38,6 +38,7 @@ import { getallSitios, getAlltanques, getTanques } from "../../apis/apisUser";
 import { STORAGEKEY } from "../../hook/database/interfaces";
 
 const Tanques: React.FC = () => {
+  const history = useHistory();
   const [dataTanque,setDataTanque]=useState([] as any)
   const [sitios,setSitios]=useState([] as any)
   const [tanques,setTanques]=useState([] as any)
@@ -63,12 +64,34 @@ const Tanques: React.FC = () => {
   },[storage])
   const valoresTanquesySitios = async (valores:any)=>{
     const valoresSitios = await getallSitios(valores[0].token,valores[0].typetoken)
+    if(valoresSitios.response){
+      if(valoresSitios.response.status==401){
+          deleteAllKey(STORAGEKEY.token)
+          deleteAllKey(STORAGEKEY.tokennotifi)
+          history.push('/login');
+      }
+    }
     const valoresTanques = await getAlltanques(valores[0].token,valores[0].typetoken)
+    
+    if(valoresTanques.response){
+      if(valoresTanques.response.status==401){
+          deleteAllKey(STORAGEKEY.token)
+          deleteAllKey(STORAGEKEY.tokennotifi)
+          history.push('/login');
+      }
+    }
     setSitios(valoresSitios.data.sitios)
     setTanques(valoresTanques.data.tanques)
   }
  const getInfosValores= async (valores:any,tanques:any)=>{
   const valoresTanques = await getTanques(valores[0].token,valores[0].typetoken)
+  if(valoresTanques.response){
+    if(valoresTanques.response.status==401){
+        deleteAllKey(STORAGEKEY.token)
+        deleteAllKey(STORAGEKEY.tokennotifi)
+        history.push('/login');
+    }
+  }
   if(valoresTanques.data.colores){
     setColores(valoresTanques.data.colores)
   }

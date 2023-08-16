@@ -20,11 +20,12 @@ import { useEffect, useState } from "react";
 import "./Notifications.css";
 import { arrowDownCircleOutline, arrowUpCircleOutline } from "ionicons/icons";
 import { useStorage } from "../../hook/database/useStorage";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import { STORAGEKEY } from "../../hook/database/interfaces";
 import { getNotificaciones } from "../../apis/apisUser";
 
 const Notifications: React.FC = () => {
+  const history = useHistory();
   const [dataNotificaciones,setNotifiaciones]=useState([] as any)
   const {getValuesKey,addValuesKey,deleteAllKey,updateValuesKey,deleteValuesKey,storage}= useStorage()
   const params=useParams()
@@ -45,6 +46,13 @@ const Notifications: React.FC = () => {
   },[storage])
  const getInfosValores= async (valores:any)=>{
   const valoresNotifiaciones = await getNotificaciones(valores[0].token,valores[0].typetoken)
+  if(valoresNotifiaciones.response){
+    if(valoresNotifiaciones.response.status==401){
+        deleteAllKey(STORAGEKEY.token)
+        deleteAllKey(STORAGEKEY.tokennotifi)
+        history.push('/login');
+    }
+  }
   if(valoresNotifiaciones.data){
     setNotifiaciones(valoresNotifiaciones.data.map((dato:any)=>{
       return({
