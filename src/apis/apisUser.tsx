@@ -111,18 +111,17 @@ export const postadjudicarCombustible = (token:any,typetoken:any,datos:{
   Fecha:string,
   Hora:string,
   Cantidad:string,
-  Despachador_id:string,
   Cliente_id:string,
   Vehiculo_id:string,
   Bomba_id:string
-}): any => {
+},id:any): any => {
   const config = {
     headers: { 
       Authorization: `${typetoken} ${token}`,
     Accept :'application/json', 
   }
   }
-  return axios.post(`${api}/api/adjudicarCombustible`,datos,config).then((response) => {
+  return axios.post(`${api}/api/adjudicarCombustible/${id}`,datos,config).then((response) => {
      return response;
     }).catch((dato)=>{
       return dato

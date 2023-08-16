@@ -82,6 +82,7 @@ const Despachador: React.FC = () => {
   const LoginDespachador=async ()=>{
     if(valuesInput.pin){
       if(valuesInput.telefono){
+        console.log(datatoken)
         const datoEnvios= await postLoginDespachador(datatoken[0].token,datatoken[0].typetoken,valuesInput)
         if(datoEnvios.status==200){
           if(datoEnvios.data.success){
@@ -98,7 +99,6 @@ const Despachador: React.FC = () => {
             }
           }
         }
-        console.log(datoEnvios)
       }
     }
   }
@@ -120,19 +120,50 @@ const Despachador: React.FC = () => {
     })
   }
   const generarDespacho= async ()=>{
+    console.log(valuesInput2)
+  
     const datoEnvio=await postadjudicarCombustible(datatoken[0].token,datatoken[0].typetoken,{
       Fecha:valuesInput2.fecha,
       Hora:valuesInput2.hora,
       Vehiculo_id:valuesInput2.vehiculo,
       Cliente_id:valuesInput2.cliente,
       Cantidad:valuesInput2.cantidad,
-      Bomba_id:valuesInput2.bomba,
-      Despachador_id:Despachador.id
-    })
-  
+      Bomba_id:valuesInput2.bomba
+    },Despachador.id)
+  if(datoEnvio.status===200){
     setMessageToast("Despacho Generado")
     setIsOpen(true)
-    console.log(datoEnvio)
+    setValuesInput2({
+      ...valuesInput2,
+      cantidad:'',
+      cliente:'',
+      bomba:'',
+      vehiculo:'',
+      fecha:'',
+      hora:''
+    })
+    setValuesInput2({
+      ...valuesInput2,
+      cantidad:'',
+      cliente:'',
+      bomba:'',
+      vehiculo:'',
+      fecha:'',
+      hora:''
+    }) 
+    setValuesInput2({
+      ...valuesInput2,
+      cantidad:'',
+      cliente:'',
+      bomba:'',
+      vehiculo:'',
+      fecha:'',
+      hora:''
+    })   
+  }else{
+    setMessageToast("Error en el Despacho")
+    setIsOpen(true)
+  }
   }
   return (
     <IonPage>
@@ -213,21 +244,21 @@ const Despachador: React.FC = () => {
             <IonItem>
             <IonLabel  position="floating">Fecha</IonLabel>
                <IonInput 
-             onIonInput={changeValues2} name="fecha" type="date"></IonInput>
+             onIonInput={changeValues2} name="fecha" type="date" value={valuesInput2.fecha==""?'':valuesInput2.fecha}></IonInput>
             </IonItem>
             <IonItem>
             <IonLabel  position="floating">hora</IonLabel>
                <IonInput 
-             onIonInput={changeValues2} name="hora" type="time"></IonInput>
+             onIonInput={changeValues2} name="hora" type="time" value={valuesInput2.hora}></IonInput>
             </IonItem>
             <IonItem>
             <IonLabel  position="floating">Cantidad</IonLabel>
                <IonInput 
-             onIonInput={changeValues2} name="cantidad" type="number"></IonInput>
+             onIonInput={changeValues2} name="cantidad" type="number" value={valuesInput2.cantidad}></IonInput>
             </IonItem>
             <IonItem>
             <IonLabel  position="floating">Cliente:</IonLabel>
-                <IonSelect name="cliente"  placeholder="" onIonChange={changeValues2}>
+                <IonSelect name="cliente" value={valuesInput2.cliente}  placeholder="" onIonChange={changeValues2}>
                   {Clientes.map((dato:any)=>{
                     return( <IonSelectOption value={dato.id}>{dato.Razon}</IonSelectOption>)
                   })}
@@ -235,7 +266,7 @@ const Despachador: React.FC = () => {
             </IonItem>
             <IonItem>
             <IonLabel  position="floating">Bomba:</IonLabel>
-                <IonSelect name="bomba"  placeholder="" onIonChange={changeValues2}>
+                <IonSelect name="bomba"  placeholder="" value={valuesInput2.bomba} onIonChange={changeValues2}>
                 {Bombas.map((dato:any)=>{
                     return( <IonSelectOption value={dato.id}>{dato.Nombre}</IonSelectOption>)
                   })}
@@ -243,7 +274,7 @@ const Despachador: React.FC = () => {
             </IonItem>
             <IonItem>
             <IonLabel  position="floating">Vehiculo:</IonLabel>
-                <IonSelect name="vehiculo"  placeholder="" onIonChange={changeValues2}>
+                <IonSelect name="vehiculo"  placeholder="" value={valuesInput2.vehiculo} onIonChange={changeValues2}>
                 {Vehiculos.map((dato:any)=>{
                     return( <IonSelectOption value={dato.id}>{dato.Nombre}</IonSelectOption>)
                   })}
