@@ -18,20 +18,15 @@ import {
   IonSelectOption,
   IonTitle,
   IonToolbar,
+  IonTabBar, IonTabButton,IonFooter
 } from "@ionic/react";
-import { chatbox, heartOutline, notifications } from "ionicons/icons";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import {
-  buildStyles,
-  CircularProgressbar,
-  CircularProgressbarWithChildren,
-} from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useHistory, useParams } from "react-router";
-import Designtanque from "../../components/designtanque";
-import SelectransactionModal from "../Modals/Selectransactionmodal/Selectransactionmodal";
 
+import { homeOutline ,carSport,home,carSportOutline,notifications} from 'ionicons/icons';
+import Designtanque from "../../components/designtanque";
 import "./Tanques.css";
 import { useStorage } from "../../hook/database/useStorage";
 import { getallSitios, getAlltanques, getTanques } from "../../apis/apisUser";
@@ -226,7 +221,27 @@ const Tanques: React.FC = () => {
                
         
     </IonList>
+
       </IonContent>
+      <IonFooter>
+
+      <IonTabBar onIonTabsDidChange={(e)=>{if(e.detail.tab==="despachador") history.replace("/despachador")}}>
+          <IonTabButton tab="tanques">
+              
+            <IonIcon icon={homeOutline} className="selected" ></IonIcon>
+            <IonIcon icon={home}  className="unselected" color="primary"></IonIcon>
+            <IonLabel>Tanques</IonLabel>
+          </IonTabButton>
+
+          <IonTabButton tab="despachador" >
+            <IonIcon icon={carSport} className="selected" ></IonIcon>
+            <IonIcon icon={carSportOutline}  className="unselected"></IonIcon>
+            <IonLabel>Despachador</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+
+      </IonFooter>
+     
     </IonPage>
   );
 };

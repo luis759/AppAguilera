@@ -1,0 +1,170 @@
+
+
+#senicn
+{
+    font-size: 30px !important;
+}
+
+.home-toolbar ion-title
+{
+    margin-left: 60px;
+}
+
+.home {
+    --background: #f8f9f9 !important;
+}
+
+
+.background-holder2
+{
+    --background: #0047cc;
+    --color: white !important;
+    border-radius: 0 0 32px 32px;
+}
+
+.top-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
+    margin: -18vh auto 0 auto;
+    top: 1vh;
+    width: 85%;
+}
+
+
+.top-card .top-row p
+{
+    color: #77869E;
+    font-family: 'Roman'; 
+    font-size: 13px;
+    
+}
+
+.top-card .top-row p strong
+{
+    color: #042C5C;
+    font-family: 'Heavy' !important; 
+}
+
+.top-card .top-row ion-button
+{
+    font-family: 'Heavy' !important; 
+}
+
+.precentage-row
+{
+    margin: -40px 50px 0 50px;
+}
+
+.home .bottom-section
+{
+    padding: 0 16px;
+} 
+
+.home .bottom-section .btns-holder ion-button
+{
+    --background: #dfe7f5;
+    --border-radius: 12px !important;
+    --box-shadow: none;
+    --color: #0047cc;
+    height: 50px !important;
+    
+}
+
+.home .bottom-section .btns-holder ion-button ion-icon
+{
+   font-size: 25px;
+    
+}
+
+.progressbar-holder .progress-image
+{
+    height: 30px;
+}
+
+.progressbar-holder .spent-holder
+{
+    color: "#77869E";
+    font-size: 13px;
+    margin-top:10px;
+     
+}
+
+.progressbar-holder .bottom-detail
+{
+    margin-top: 50px;
+}
+
+.bottom-detail p
+{
+    font-size: 12px;
+}
+
+.details .the-title h3
+{
+    color: #042C5C;
+    font-family: 'Heavy';
+    font-size: 20px;
+}
+
+
+.segment-holder ion-segment ion-segment-button
+{
+    --background-checked: #DFE7F5;
+    font-family: 'Medium';
+    font-size: 0.8rem !important;
+    min-height: 3rem !important;
+    text-transform: none !important;
+    
+}
+
+.segment-button-checked
+{
+    font-family: 'Heavy' !important;
+}
+
+
+.the-list ion-item
+{
+    --border-radius: 10px;
+    margin: 10px 0 !important;
+}
+.the-list ion-item .start-slot
+{
+  margin-right: 16px;
+}
+.the-list ion-item .start-slot img
+{
+    height: 40px;
+}
+
+.the-list ion-item h5
+{
+    color: #ee5a55 !important;
+    font-family: 'Heavy' !important;
+}
+
+
+
+
+.the-list ion-item ion-label h4
+{
+    color: #042C5C !important;
+    font-family: 'Heavy' !important;
+    font-size: 16px;
+}
+
+.the-list ion-item ion-label p
+{
+    color: #77869E !important;
+    font-family: 'Roman' !important;
+    font-size: 13px;
+    margin: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+
+
+
+
+

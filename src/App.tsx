@@ -60,6 +60,7 @@ import Successmodal from "./pages/Modals/Successmodal/Successmodal";
 import Addincome from "./pages/Addincome/Addincome";
 import Send from "./pages/Send/Send";
 import Notifications from "./pages/Notifications/Notifications";
+import Despachador from "./pages/despachador/Despachador";
 import Tanqueinfo from "./pages/Tanqueinfo/Tanqueinfo";
 import { useStorage } from "./hook/database/useStorage";
 import { STORAGEKEY } from "./hook/database/interfaces";
@@ -151,6 +152,10 @@ const App: React.FC = () => {
           </Route>
           <Route exact path="/signup">
             <Signup />
+          </Route>
+          
+          <Route exact path="/despachador">
+            <Despachador />
           </Route>
           <Route exact path="/home">
             <Home />
