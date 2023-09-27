@@ -25,7 +25,7 @@ import { useState } from "react";
 import "react-circular-progressbar/dist/styles.css";
 import { useHistory, useParams } from "react-router";
 
-import { homeOutline ,carSport,home,carSportOutline,notifications} from 'ionicons/icons';
+import { homeOutline ,carSport,home,carSportOutline,notifications,logOut} from 'ionicons/icons';
 import Designtanque from "../../components/designtanque";
 import "./Tanques.css";
 import { useStorage } from "../../hook/database/useStorage";
@@ -117,6 +117,11 @@ const Tanques: React.FC = () => {
     setTanquesShow(tanques)
   }
  }
+ const Deslogear=()=>{
+  deleteAllKey(STORAGEKEY.token)
+  deleteAllKey(STORAGEKEY.tokennotifi)
+  history.push('/login');
+ }
  const cambioTanqueShow =(e:any)=>{
   setTanqueBuscar(e.detail.value)
  }
@@ -156,6 +161,12 @@ const Tanques: React.FC = () => {
     <IonPage>
       <IonHeader className="ion-no-border">
         <IonToolbar className="background-holder2">
+          
+        <IonButtons slot="start">
+            <IonButton onClick={ Deslogear}>
+              <IonIcon className="fav" icon={logOut} slot="end" />
+            </IonButton>
+          </IonButtons>
           <IonTitle className="ion-text-center">Tanques</IonTitle>
           <IonButtons slot="end">
             <IonButton routerLink="/notifications">

@@ -24,7 +24,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import "react-circular-progressbar/dist/styles.css";
 import { useHistory, useParams } from "react-router";
-import { homeOutline ,carSport,home,carSportOutline,notifications} from 'ionicons/icons';
+import { homeOutline ,carSport,home,carSportOutline,notifications,logOut} from 'ionicons/icons';
 import "./Despachador.css";
 import { useStorage } from "../../hook/database/useStorage";
 import { getAllClientes, getAllBombas,getAllVehiculos, postadjudicarCombustible,postLoginDespachador } from "../../apis/apisUser";
@@ -112,6 +112,11 @@ const Despachador: React.FC = () => {
       [name]: value
     })
   }
+  const Deslogear=()=>{
+    deleteAllKey(STORAGEKEY.token)
+    deleteAllKey(STORAGEKEY.tokennotifi)
+    history.push('/login');
+   }
   const changeValues2= (eventos:any)=>{
     const {name,value}=eventos.target
     setValuesInput2({
@@ -169,6 +174,11 @@ const Despachador: React.FC = () => {
     <IonPage>
       <IonHeader className="ion-no-border">
         <IonToolbar className="background-holder2">
+        <IonButtons slot="start">
+            <IonButton onClick={ Deslogear}>
+              <IonIcon className="fav" icon={logOut} slot="end" />
+            </IonButton>
+          </IonButtons>
           <IonTitle className="ion-text-center">Despachador</IonTitle>
           <IonButtons slot="end">
             <IonButton routerLink="/notifications">
